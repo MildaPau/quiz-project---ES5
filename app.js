@@ -38,7 +38,7 @@ var populate = () => {
     if(questionNumber < questions.length) {
         question.innerText = questions[questionNumber].text;
         button.forEach((x, i) => {
-        x.innerText = `${questions[questionNumber].choices[i]}`;
+            x.innerText = `${questions[questionNumber].choices[i]}`;
         });
     } else {
         // Užkrauna resultatus
@@ -49,10 +49,16 @@ var populate = () => {
 // Rodo progresą
 var showProgress = () => {
     questionNumber++;
+    // console.log(questionNumber);
     progress.innerText = questionNumber + 1;
 }
 
 // Skaičiuoja teisingus atsakymus
+// function check(guess){
+//     if(guess.innerText === questions[questionNumber].answer){
+//         return resultNumber++;
+//     }
+// }
 var check = guess => {
     if(guess.innerText === questions[questionNumber].answer) resultNumber++;
 }
@@ -63,7 +69,7 @@ var showResults = () => {
     var h1 = document.getElementsByTagName("h1")[0];
     quiz.innerHTML = `<h1>Result ${resultNumber} </h1>`;
     quiz.classList.add("result");
-    h1.style.animationPlayState = "paused";
+    h1.style.AnimationPlayState="paused";
 }
 
 // Priskiria funkciją mygtukams
@@ -83,30 +89,76 @@ button.forEach((x) => {
 // Pirmas užkrovimas
 populate();
 
+
+
+
+// style
 var quiz = document.getElementById("quiz");
-// var h1 = document.getElementsByTagName("h1")[0];
+var h1 = document.getElementsByTagName("h1")[0];
+var buttons = document.getElementsByClassName("buttons");
+var footer = document.getElementsByTagName("footer")[0];
+
+var question = document.getElementById("question");
+var button = document.querySelectorAll("button");
+var progress = document.getElementById("progress");
+
 
 setTimeout(function(){
         quiz.style.opacity = 0;
-    }, 500);
+        h1.style.opacity = 0;
+        question.style.opacity = 0;
+        button[0].style.opacity = 0;
+        footer.style.opacity = 0;
+    }, 200);
 setTimeout(function(){
         quiz.style.opacity = 0.1;
-        h1.style.opacity = 0;
-    }, 700);
+        h1.style.opacity = 1;
+        question.style.opacity = 0;
+        button[0].style.opacity = 0;
+        button[1].style.opacity = 0;
+        button[2].style.opacity = 0;
+        button[3].style.opacity = 0;
+        footer.style.opacity = 0;
+    }, 400);
 setTimeout(function(){
         quiz.style.opacity = 0.3;
-        h1.style.opacity = 0;
-    }, 900);
+        // h1.style.opacity = 1;
+        question.style.opacity = 1;
+        button[0].style.opacity = 0;
+        button[1].style.opacity = 0;
+        button[2].style.opacity = 0;
+        button[3].style.opacity = 0;
+        footer.style.opacity = 0;
+    }, 600);
 setTimeout(function(){
         quiz.style.opacity = 0.5;
-        h1.style.opacity = 1;
-    }, 1100);
+        // h1.style.opacity = 1;
+        button[0].style.opacity = 1;
+        button[1].style.opacity = 0;
+        button[2].style.opacity = 0;
+        button[3].style.opacity = 0;
+        footer.style.opacity = 0;
+    }, 800);
 setTimeout(function(){
         quiz.style.opacity = 0.7;
-    }, 1300);
+        button[1].style.opacity = 1;
+        button[2].style.opacity = 0;
+        button[3].style.opacity = 0;
+        footer.style.opacity = 0;
+    }, 1000);
 setTimeout(function(){
         quiz.style.opacity = 0.9;
-    },1500);
+        button[2].style.opacity = 1;
+        button[3].style.opacity = 0;
+        footer.style.opacity = 0;
+    },1200);
 setTimeout(function(){
+    button[3].style.opacity = 1;
+    footer.style.opacity = 0;
         quiz.style.opacity = 1;
-    }, 2000);
+    }, 1400);
+setTimeout(function(){
+    footer.style.opacity = 1;
+    }, 1600);
+
+
