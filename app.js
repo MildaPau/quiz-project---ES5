@@ -53,12 +53,14 @@ var showProgress = () => {
     progress.innerText = questionNumber + 1;
 }
 
-// Skaičiuoja teisingus atsakymus
+
 // function check(guess){
 //     if(guess.innerText === questions[questionNumber].answer){
 //         return resultNumber++;
 //     }
 // }
+
+// Skaičiuoja teisingus atsakymus
 var check = guess => {
     if(guess.innerText === questions[questionNumber].answer) resultNumber++;
 }
@@ -69,7 +71,8 @@ var showResults = () => {
     var h1 = document.getElementsByTagName("h1")[0];
     quiz.innerHTML = `<h1>Result ${resultNumber} </h1>`;
     quiz.classList.add("result");
-    h1.style.AnimationPlayState="paused";
+    h1.classList.add("paused");
+    // h1.style.AnimationPlayState="paused !important";
 }
 
 // Priskiria funkciją mygtukams
